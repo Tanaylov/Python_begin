@@ -48,22 +48,30 @@ print(task_list)
 
 if user_num > len(task_list):
   shift_amount = (user_num - len(task_list)) % len(task_list)
-  for i in range(len(task_list)):
-    if shift_amount < i:
-      task_list_result.append(task_list[-shift_amount + i])
-    else:
-      task_list_result.append(task_list[i - shift_amount])
-elif user_num == len(task_list):
+elif user_num == len(task_list) or user_num % len(task_list) == 0:
   task_list_result = task_list
+  print(task_list_result)
 else:
   shift_amount = user_num
-  for i in range(len(task_list)):
-      if shift_amount < i:
-          task_list_result.append(task_list[-shift_amount + i])
-      else:
-          task_list_result.append(task_list[i - shift_amount])
 
-print(task_list_result)
+if not task_list == task_list_result:
+  # Вариант со срезами:
+  task_list_result = task_list[-shift_amount : ] + task_list[ : -shift_amount]
+  print(task_list_result)
+  # Вариант с pop and insert:
+  # for i in range(shift_amount):
+  #   pop = task_list.pop(-1)
+  #   task_list.insert(0, pop)
+  # task_list_result = task_list
+  # print(task_list_result)
+  # Вариант со сдвигом:
+  # for i in range(len(task_list)):
+  #     if shift_amount < i:
+  #         task_list_result.append(task_list[-shift_amount + i])
+  #     else:
+  #         task_list_result.append(task_list[i - shift_amount])
+
+
 
 
 '''Напишите программу для печати всех уникальных 
