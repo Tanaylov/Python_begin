@@ -37,7 +37,7 @@ K. Необходимо сдвинуть всю последовательнос
 положительное число.
 Input: [1, 2, 3, 4, 5] k = 2
 Output: [4, 5, 1, 2, 3]'''
-
+'''
 task_list = []
 task_list_result = []
 user_num = int(input('Enter the number of shifts: '))
@@ -54,10 +54,10 @@ elif user_num == len(task_list) or user_num % len(task_list) == 0:
 else:
   shift_amount = user_num
 
-if not task_list == task_list_result:
+if not task_list == task_list_result: '''
   # Вариант со срезами:
-  task_list_result = task_list[-shift_amount : ] + task_list[ : -shift_amount]
-  print(task_list_result)
+  # task_list_result = task_list[-shift_amount : ] + task_list[ : -shift_amount]
+  # print(task_list_result)
   # Вариант с pop and insert:
   # for i in range(shift_amount):
   #   pop = task_list.pop(-1)
@@ -85,12 +85,12 @@ task_dict = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII
 #task_dict = {"X": "S001", "V": "S002", "VI": "S001", "XI": "S005", "VII": "S005", "IV": "S009",
  #             "VIII": "S007"}
 print(type(task_dict), len(task_dict))
-set_result = []
+set_result = set() #set_result = []
 for el in task_dict: 
   for val in el.values():
-    if val not in set_result:
-      set_result.append(val)
-print(set_result)
+    #if val not in set_result:
+      set_result.add(val)
+print(type(set_result), set_result)
 '''
 
 '''Дан массив, состоящий из целых чисел. Напишите 
@@ -107,3 +107,19 @@ print(task_list)
 result = [f'({task_list[i]} < {task_list[i + 1]})' for i in range(len(task_list) - 1) if task_list[i] < task_list[i + 1]]
 print(*result, ' --> ', len(result))
 '''
+
+phone_string = '+79857879651 +6958764 +5123489 +71325849 +713489 +613484 +5456842 +6132489 +71324899'
+phone_list = phone_string.split(' ')
+print(phone_list[0][:2], phone_list)
+phone_dict = {}
+
+for el in phone_list:
+    phone_dict.setdefault(el[:2], [])
+    # phone_dict[el[:2]] += [el]
+    phone_dict[el[:2]].append(el)
+# phone_dict['7'] = [123, 465, 'jfjf']
+# key = "somekey"
+# a.setdefault(key, [])
+# a[key].append(2)
+
+print(phone_dict)
