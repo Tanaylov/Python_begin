@@ -88,7 +88,7 @@ for i in word:
             if i in points_en[j]:
                 count = count + j
     else:
-        for j in points_en:
+        for j in points_ru:
             if i in points_ru[j]:
                 count = count + j
 print(count)
