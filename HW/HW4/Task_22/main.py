@@ -23,7 +23,7 @@ set_result = set1 & set2
 # Как я понял, если нет отрицательного элемента во множестве, 
 # то оно автоматом сортируется от меньшего к большему. Если есть, то сортируется сначало 
 # положительные элементы, а потом идут тоже отсортированные отрицательные элементы. Но лучше всё равно 
-# использовать sorted(), т. к. иногда почему-то он не сортирутеся как надо.
+# использовать sorted(), т. к. иногда почему-то он не сортирутется как надо.
 set_result = sorted(set_result)
 print(*set_result)'''
 
@@ -45,7 +45,7 @@ while i < size1:
        break
     else:
        print('You enter incorrect number, try again', end=': ')
-  if list1.__contains__(element):
+  if list1.__contains__(element): # Сразу убираю повторы
       size1 -= 1
       continue
   else:
@@ -75,11 +75,12 @@ print(f'First sequence: {list1}')
 print(f'Second sequence: {list2}')
 
 result_list = []
-if len(list1) < len(list2):
+# собираю список одинаковых элементов из двух списков
+if len(list1) < len(list2): # ввёл условие, чтобы идти по списку с минимальной длиной
    for el in list1:
       if el in list2:
          result_list.append(el)
-         i = len(result_list) - 1
+         i = len(result_list) - 1 # сразу при компановке нового списка сортирую его min->max
          while i != 0:
             if result_list[i - 1] > result_list[i]:
                result_list[i - 1], result_list[i] = result_list[i], result_list[i - 1]
