@@ -7,8 +7,11 @@ text = "She sells sea shells on the sea shore The shells that she sells are sea 
 
 text = text.upper()
 text_list = text.split(' ')
-print(text_list)
-text_list = set(text_list)
-print(text_list)
+text_dict = {}
+for el in text_list:
+    text_dict[el] = text_dict.get(el, 0) + 1
+# print(text_list)
+# text_list = set(text_list)
+# print(text_list)
 
-print(len(text_list))
+print(len(text_dict))
