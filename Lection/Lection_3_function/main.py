@@ -42,26 +42,6 @@ def fibonachi(num):
 
 print(fibonachi(9))
 
-print('--------------------------')
 
-a = c = 3
-b = 3
 
-def aToExtentOfb (a, b):
-    if b == 0:
-        print(a)
-        return a
-    else:
-        print(a, b)
-        return a*a + aToExtentOfb(a, b - 1)
 
-aToExtentOfb(a, b)
-
-# def sumAB (num1, num2):
-#     if num2 == 0:
-#         print(num1)
-#         return num1
-#     else:
-#         return sumAB(num1 = num1 + 1, num2 = num2 - 1)
-    
-# sumAB(a, b)
