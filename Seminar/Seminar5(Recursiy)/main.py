@@ -8,24 +8,28 @@ clear()
 Input: 7
 Output: 21'''
 start1 = time.time()
-def fibo(n):
-    if n in [1, 2]:
-        return 1 
-    else:
-        return fibo(n - 1) + fibo(n - 2)
-print(fibo(7))
+# def fibo(n):
+#     if n in [1, 2]:
+#         return 1 
+#     else:
+#         return fibo(n - 1) + fibo(n - 2)
+def fibo2(n, left = 0, right = 1): # гораздо быстрее первого варианта с рекурсией, но всё равно медленее, чем цикл
+    if n == 2:
+        return right
+    return fibo2(n - 1, left = right, right = right + left)
+print(fibo2(15))
 end = time.time() - start1
 print(end)
 
 start1 = time.time()
-n = 37
+n = 15
 fibo1 = 1
 fibo2 = 1
 
 for i in range(1, n - 2):
     fibo1, fibo2 = fibo2, fibo2 + fibo1
 end = time.time() - start1
-print(fibo2 + fibo1, end)
+print(fibo2, end)
 
 ''' Напишите программу, которая
 заменяет оценки Василия, но наоборот: все
@@ -73,14 +77,72 @@ def factorialN(num):
     if num == 0:
         return num + 1
     return num * factorialN(num - 1)
-print(factorialN(1))
+print(factorialN(5))
 
 
-tuple1 = '4567893'
-def reverse(list1, n = 0):
-    
-    if n == len(list1)//2:
-        return list1
-    
-    return reverse(list1, n - 1)
-print(reverse(tuple1))
+''' Напишите функцию, которая принимает одно число и 
+проверяет, является ли оно простым
+Напоминание: Простое число - это число, которое 
+имеет 2 делителя: 1 и n(само число)
+Input: 5
+Output: yes'''
+
+n = 3
+
+def simpleNumberDetect(num, i = 3):
+    flag = True
+    if num == 2:
+        return flag
+    if num < 2 or num % 2 == 0:
+        flag = False
+        return flag
+    if i > num // 2:
+        return flag
+    if num % i == 0:
+        flag = False
+        return flag
+    return simpleNumberDetect(num, i + 2)
+
+print(simpleNumberDetect(n))
+
+''' Дано натуральное число N и
+последовательность из N элементов.
+Требуется вывести эту последовательность в
+обратном порядке.
+Примечание. В программе запрещается
+объявлять массивы и использовать циклы
+(даже для ввода и вывода).
+Input: 2 -> 3 4
+Output: 4 3'''
+
+number_list = '4568234'
+print(number_list[::-1])
+def reverseList (list1, result = '', i = 0):
+    if i == len(list1):
+        return result
+    return reverseList(list1, result = result + list1[-i - 1], i = i + 1)
+print(reverseList(number_list))
+
+def reverseEnter(n):
+    if n == 0: 
+        return ''
+    number = input('Enter the number: ')
+    return reverseEnter(n - 1) + f'{number} '
+
+count = int(input('Enter the count of elements : '))
+print(reverseEnter(count))
+# Полиндром:
+
+# def polindrom (text, i = 0):
+#     if i == len(text) // 2:
+#         return True
+#     elif text[i] != text[len(text) - 1 - i]:
+#         return False
+#     return polindrom(text, i + 1)
+def polindromDetect(word):
+    if len(word) == 0:
+        return True
+    if word[0] != word[-1]:
+        return False
+    return polindromDetect(word[1:-1])
+print(polindromDetect(input('Enter the number: ')))
