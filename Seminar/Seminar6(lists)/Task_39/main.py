@@ -18,8 +18,9 @@ clear()
 
 lst1 = [3, 1, 3, 4, 2, 4, 12]
 lst2 = [4, 15, 43, 1, 15, 1]
-my_set = set(lst1) - set(lst2)
+my_set = set(sorted(set(lst1) - set(lst2)))
 print(my_set)
+print(type(my_set))
 result = []
 for el in lst1:
     if el  not in lst2:
