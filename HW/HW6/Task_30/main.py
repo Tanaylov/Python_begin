@@ -33,3 +33,7 @@ num_count = userInputIsNumber('Enter the count of element (n): ', error_enter)
 
 num_arithmetic_progression = [first_num + num_count * diff for num_count in range(num_count)]
 print(*num_arithmetic_progression, sep=', ')
+
+first_num = 2; delta = 7; count_el = 11
+arithmetc_prog = [x for x in range(first_num, delta * count_el, delta)]
+print(arithmetc_prog)
