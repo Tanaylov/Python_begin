@@ -32,8 +32,6 @@ def rhythmTest(lst, vowels):
         lst_vow.append(string_vowels)
         if len(lst_vow) > 1 and len(lst_vow[-1]) != len(lst_vow[-2]):
             return 'Пам парам'
-    return 'Парам пам-пам'
+    return 'Парам пам-пам'            
 
-            
-#phrase_list = phrase.split() 
 print(rhythmTest(phrase, vowels))
